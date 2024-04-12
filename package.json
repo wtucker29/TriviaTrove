@@ -1,6 +1,7 @@
 {
   "name": "mobilequizwhiz",
   "version": "1.0.0",
+  "description": "This project is a mobile version of QuizWhiz that allows users to take quizzes and view their scores.",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -8,6 +9,22 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wtucker29/QuizWhizMobile.git"
+  },
+  "keywords": [
+    "quiz",
+    "mobile",
+    "react-native",
+    "expo"
+  ],
+  "author": "William Tucker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wtucker29/QuizWhizMobile.git/issues"
+  },
+  "homepage": "https://github.com/wtucker29/QuizWhizMobile#readme",
   "dependencies": {
     "axios": "^1.6.8",
     "expo": "~50.0.14",
