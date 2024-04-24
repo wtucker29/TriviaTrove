@@ -12,10 +12,10 @@ export default function Profile({ onProfileClose }) {
         <Text style={styles.overall}>Total Questions: 5</Text>
         <Text style={styles.overall}>Average Score: 75%</Text>
       </View>
-      <View style={styles.section}>
+      {/* <View style={styles.section}>
         <Text style={styles.heading}>Quiz History:</Text>
         <ProfileTable />
-      </View>
+      </View> */}
       <View style={styles.section}>
         <TouchableOpacity title="Profile" onPress={onProfileClose} accessabilityLabel="Click to view user profile" style={styles.button}>
           <Text style={styles.buttonText}>Return to Home</Text>
