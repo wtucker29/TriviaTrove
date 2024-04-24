@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function QuizOptions({ handleQuizStart }) {
@@ -189,13 +188,6 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: '#ffffff',
-    color: 'black',
-    padding: 10,
-    borderRadius: 5,
-    width: 300,
-  },
-  picker: {
-    backgroundColor: 'white',
     color: 'black',
     padding: 10,
     borderRadius: 5,
