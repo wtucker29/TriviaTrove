@@ -90,8 +90,8 @@ export default function QuizOptions({ handleQuizStart }) {
         <Text style={styles.heading}>Category:</Text>
         <DropDownPicker
           open={catOpen}
-          zIndex={3000}
-          zIndexInverse={1000}
+          // zIndex={3000}
+          // zIndexInverse={1000}
           items={categoryItems}
           value={catValue}
           setOpen={setCatOpen}
@@ -103,21 +103,27 @@ export default function QuizOptions({ handleQuizStart }) {
             justifyContent: 'flex-start',
           }}
           dropDownStyle={{ backgroundColor: '#ffffff' }}
+          dropDownDirection="TOP"
           onChangeItem={(item) => setQuizOptions({ ...quizOptions, category: item.value })}
         />
       </View>
-      <View style={styles.formGroup}>
+      <>
         <Text style={styles.heading}>Difficulty:</Text>
         <DropDownPicker
           open={difficultyOpen}
-          zIndex={2000}
-          zIndexInverse={2000}
+          // zIndex={2000}
+          // zIndexInverse={2000}
           items={difficultyItems}
           value={difficultyValue}
           setOpen={setDifficultyOpen}
           setValue={setDifficultyValue}
           setItems={setDifficultyItems}
-          containerStyles={{ height: 40 }}
+          containerProps={{
+            style: {
+              zIndex: difficultyOpen ? 300 : null,
+              zIndexInverse: difficultyOpen ? 100 : null,
+            }
+          }}
           style={{ backgroundColor: '#ffffff', color: 'black', padding: 10, borderRadius: 5, width: 300 }}
           itemStyle={{
             justifyContent: 'flex-start',
@@ -125,13 +131,11 @@ export default function QuizOptions({ handleQuizStart }) {
           dropDownStyle={{ backgroundColor: '#ffffff' }}
           onChangeItem={(item) => setQuizOptions({ ...quizOptions, difficulty: item.value })}
         />
-      </View>
+      </>
       <View style={styles.formGroup}>
         <Text style={styles.heading}>Type:</Text>
         <DropDownPicker
           open={typeOpen}
-          zIndex={1000}
-          zIndexInverse={3000}
           items={typeItems}
           value={typeValue}
           setOpen={setTypeOpen}
@@ -143,6 +147,7 @@ export default function QuizOptions({ handleQuizStart }) {
             justifyContent: 'flex-start',
           }}
           dropDownStyle={{ backgroundColor: '#ffffff' }}
+          dropDownDirection="TOP"
           onChangeItem={(item) => setQuizOptions({ ...quizOptions, type: item.value })}
         />
       </View>
@@ -171,7 +176,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   formGroup: {
-    marginBottom: 20,
+    marginVertical: 10,
     color: '#ffffff',
   },
   heading: {
