@@ -4,7 +4,7 @@ import { View, TouchableOpacity, StyleSheet, Text, Animated, Image } from 'react
 export default function Splash({ navigation }) {
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
 
-  const startQuiz = () => {
+  const home = () => {
     Animated.sequence([
       Animated.timing(fadeAnim, {
         toValue: 0,
@@ -28,8 +28,8 @@ export default function Splash({ navigation }) {
       <TouchableOpacity
         title="Enter"
         onPress={() => {
-          navigation.navigate('QuizOptions');
-          startQuiz();
+          navigation.navigate('Home');
+          home();
         }}
         accessabilityLabel="Click to enter trivia application"
         style={styles.btn}
