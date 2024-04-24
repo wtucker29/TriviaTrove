@@ -75,7 +75,6 @@ export default function QuizOptions({ handleQuizStart }) {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.optionsText}>Quiz Options:</Text> */}
       <View style={styles.formGroup}>
         <Text style={styles.heading}>Number of Questions (Max 50):</Text>
         <TextInput
@@ -160,7 +159,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-    withd: '100%',
+    width: '100%',
+    height: '100%',
     backgroundColor: '#272724',
   },
   optionsText: {
