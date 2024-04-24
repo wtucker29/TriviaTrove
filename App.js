@@ -91,6 +91,21 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: "Home",
+            headerStyle: {
+              backgroundColor: "#272724"
+            },
+            backgroundColor: "#272724",
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
           name="Profile"
           component={Profile}
           options={{
