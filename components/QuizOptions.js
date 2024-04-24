@@ -75,7 +75,7 @@ export default function QuizOptions({ handleQuizStart }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.formGroup}>
+      <>
         <Text style={styles.heading}>Number of Questions (Max 50):</Text>
         <TextInput
           style={styles.input}
@@ -85,34 +85,35 @@ export default function QuizOptions({ handleQuizStart }) {
           maxLength={2}
           returnKeyType="done"
         />
-      </View>
-      <View style={styles.formGroup}>
+      </>
+      <>
         <Text style={styles.heading}>Category:</Text>
         <DropDownPicker
           open={catOpen}
-          // zIndex={3000}
-          // zIndexInverse={1000}
           items={categoryItems}
           value={catValue}
           setOpen={setCatOpen}
           setValue={setCatValue}
           setItems={setCategoryItems}
-          containerStyles={{ height: 40 }}
+          containerProps={{
+            style: {
+              zIndex: catOpen ? 300 : null,
+              zIndexInverse: catOpen ? 100 : null,
+            }
+          }}
           style={{ backgroundColor: '#ffffff', color: 'black', padding: 10, borderRadius: 5, width: 300 }}
           itemStyle={{
             justifyContent: 'flex-start',
           }}
           dropDownStyle={{ backgroundColor: '#ffffff' }}
-          dropDownDirection="TOP"
+          dropDownContainerStyle={{ width: 300}}
           onChangeItem={(item) => setQuizOptions({ ...quizOptions, category: item.value })}
         />
-      </View>
+      </>
       <>
         <Text style={styles.heading}>Difficulty:</Text>
         <DropDownPicker
           open={difficultyOpen}
-          // zIndex={2000}
-          // zIndexInverse={2000}
           items={difficultyItems}
           value={difficultyValue}
           setOpen={setDifficultyOpen}
@@ -129,10 +130,11 @@ export default function QuizOptions({ handleQuizStart }) {
             justifyContent: 'flex-start',
           }}
           dropDownStyle={{ backgroundColor: '#ffffff' }}
+          dropDownContainerStyle={{ width: 300}}
           onChangeItem={(item) => setQuizOptions({ ...quizOptions, difficulty: item.value })}
         />
       </>
-      <View style={styles.formGroup}>
+      <>
         <Text style={styles.heading}>Type:</Text>
         <DropDownPicker
           open={typeOpen}
@@ -141,16 +143,21 @@ export default function QuizOptions({ handleQuizStart }) {
           setOpen={setTypeOpen}
           setValue={setTypeValue}
           setItems={setTypeItems}
-          containerStyles={{ height: 40 }}
+          containerProps={{
+            style: {
+              zIndex: typeOpen ? 300 : null,
+              zIndexInverse: typeOpen ? 100 : null,
+            }
+          }}
           style={{ backgroundColor: '#ffffff', color: 'black', padding: 10, borderRadius: 5, width: 300 }}
           itemStyle={{
             justifyContent: 'flex-start',
           }}
           dropDownStyle={{ backgroundColor: '#ffffff' }}
-          dropDownDirection="TOP"
+          dropDownContainerStyle={{ width: 300}}
           onChangeItem={(item) => setQuizOptions({ ...quizOptions, type: item.value })}
         />
-      </View>
+      </>
       <TouchableOpacity onPress={onQuizSelect} style={styles.button}>
         <Text style={styles.buttonText}>Start</Text>
       </TouchableOpacity>
@@ -182,7 +189,7 @@ const styles = StyleSheet.create({
   heading: {
     color: '#ffffff',
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginVertical: 20,
   },
   input: {
     backgroundColor: '#ffffff',
@@ -203,7 +210,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
-    marginBottom: 20,
+    marginVertical: 20,
   },
   buttonText: {
     color: 'black',
