@@ -1,7 +1,7 @@
 {
   "name": "mobilequizwhiz",
   "version": "1.0.0",
-  "description": "This project is a mobile version of QuizWhiz that allows users to take quizzes and view their scores.",
+  "description": "This project is a mobile version of TriviaTrove that allows users to take quizzes and view their scores.",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -26,12 +26,18 @@
   },
   "homepage": "https://github.com/wtucker29/QuizWhizMobile#readme",
   "dependencies": {
+    "@react-native-picker/picker": "^2.7.5",
+    "@react-navigation/native": "^6.1.17",
+    "@react-navigation/stack": "^6.3.29",
     "axios": "^1.6.8",
     "expo": "~50.0.14",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-native": "0.73.6",
-    "react-native-paper": "^5.12.3"
+    "react-native-dropdown-picker": "^5.4.6",
+    "react-native-gesture-handler": "^2.16.0",
+    "react-native-paper": "^5.12.3",
+    "react-native-reanimated": "^3.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
