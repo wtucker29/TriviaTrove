@@ -1,2 +1,2 @@
-# MobileQuizWhiz
-Mobile version of QuizWhiz built on React Native.
+# TrivaTrove
+Mobile version of my personal QuizWhiz project built on React Native.
