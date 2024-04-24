@@ -182,10 +182,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 20,
   },
-  formGroup: {
-    marginVertical: 10,
-    color: '#ffffff',
-  },
   heading: {
     color: '#ffffff',
     fontWeight: 'bold',
