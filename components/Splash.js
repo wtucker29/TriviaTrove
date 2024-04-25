@@ -21,7 +21,7 @@ export default function Splash({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("../assets/favicon.png")} />
+      <Image style={styles.image} source={require("../assets/triviatrove.png")} />
       <View style={styles.subContainer}>
         <Text style={styles.text}>Welcome to TriviaTrove!</Text>
       </View>
