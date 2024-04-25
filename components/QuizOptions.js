@@ -1,8 +1,26 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Animated } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
+import axios from 'axios';
 
-export default function QuizOptions({ handleQuizStart }) {
+export default function QuizOptions({ handleQuizStart, navigation }) {
+  const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
+  const [quizData, setQuizData] = useState(null);
+
+  const home = () => {
+    Animated.sequence([
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 100,
+        useNativeDriver: false,
+      }),
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 1900,
+        useNativeDriver: false,
+      }),
+    ]).start();
+  };
 
   const [quizOptions, setQuizOptions] = useState({
     amount: 10, // Default question amount
@@ -59,10 +77,20 @@ export default function QuizOptions({ handleQuizStart }) {
     { label: "True / False", value: "boolean" }
   ]);
 
-  const onQuizSelect = (e) => {
+  const onQuizSelect = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.get(`https://opentdb.com/api.php?amount=${quizOptions.amount}&category=${quizOptions.category}&difficulty=${quizOptions.difficulty}&type=${quizOptions.type}`);
+      setQuizData(response.data);
+      if (response.data) {
+        const data = response.data.results;
+        navigation.navigate('Quiz', { data });
+        home();
+      }
+    } catch {
+      console.error('Error fetching quiz data');
+    }
     // handleQuizStart(quizOptions);
-    console.log('Quiz Options:', quizOptions);
 
     setQuizOptions({
       amount: 10,
