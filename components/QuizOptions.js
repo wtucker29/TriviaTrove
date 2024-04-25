@@ -61,7 +61,7 @@ export default function QuizOptions({ handleQuizStart }) {
 
   const onQuizSelect = (e) => {
     e.preventDefault();
-    handleQuizStart(quizOptions);
+    // handleQuizStart(quizOptions);
     console.log('Quiz Options:', quizOptions);
 
     setQuizOptions({
@@ -106,7 +106,7 @@ export default function QuizOptions({ handleQuizStart }) {
           }}
           dropDownStyle={{ backgroundColor: '#ffffff' }}
           dropDownContainerStyle={{ width: 300}}
-          onChangeItem={(item) => setQuizOptions({ ...quizOptions, category: item.value })}
+          onSelectItem={(item) => setQuizOptions({ ...quizOptions, category: item.value })}
         />
       </>
       <>
@@ -130,7 +130,7 @@ export default function QuizOptions({ handleQuizStart }) {
           }}
           dropDownStyle={{ backgroundColor: '#ffffff' }}
           dropDownContainerStyle={{ width: 300}}
-          onChangeItem={(item) => setQuizOptions({ ...quizOptions, difficulty: item.value })}
+          onSelectItem={(item) => setQuizOptions({ ...quizOptions, difficulty: item.value })}
         />
       </>
       <>
@@ -154,7 +154,7 @@ export default function QuizOptions({ handleQuizStart }) {
           }}
           dropDownStyle={{ backgroundColor: '#ffffff' }}
           dropDownContainerStyle={{ width: 300}}
-          onChangeItem={(item) => setQuizOptions({ ...quizOptions, type: item.value })}
+          onSelectItem={(item) => setQuizOptions({ ...quizOptions, type: item.value })}
         />
       </>
       <TouchableOpacity onPress={onQuizSelect} style={styles.button}>
