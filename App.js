@@ -15,7 +15,6 @@ const Stack = createStackNavigator();
 export default function App() {
 
   const [splashScreen, setSplashScreen] = useState(true);
-  const [quizData, setQuizData] = useState(null);
   const [userScore, setUserScore] = useState(null);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [userResults, setUserResults] = useState([]);
