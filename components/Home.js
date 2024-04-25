@@ -37,7 +37,7 @@ export default function Home({ navigation }) {
         <Text style={styles.btnText}>Profile</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        title="Start Quiz"
+        title="Start Trivia"
         onPress={() => {
           navigation.navigate('QuizOptions');
           homeNav();
@@ -45,7 +45,7 @@ export default function Home({ navigation }) {
         accessabilityLabel="Click to select quiz options"
         style={styles.btn}
       >
-        <Text style={styles.btnText}>Start a Quiz</Text>
+        <Text style={styles.btnText}>Start Trivia</Text>
       </TouchableOpacity>
     </View>
   );
