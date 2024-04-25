@@ -21,14 +21,14 @@ export default function App() {
   const [userResults, setUserResults] = useState([]);
   const [profile, setProfile] = useState(false);
 
-  const handleQuizStart = async (quizOptions) => {
-    try {
-      const response = await axios.get(`https://opentdb.com/api.php?amount=${quizOptions.amount}&category=${quizOptions.category}&difficulty=${quizOptions.difficulty}&type=${quizOptions.type}`);
-      setQuizData(response.data);
-    } catch {
-      console.error('Error fetching quiz data');
-    }
-  };
+  // const handleQuizStart = async (quizOptions) => {
+  //   try {
+  //     const response = await axios.get(`https://opentdb.com/api.php?amount=${quizOptions.amount}&category=${quizOptions.category}&difficulty=${quizOptions.difficulty}&type=${quizOptions.type}`);
+  //     setQuizData(response.data);
+  //   } catch {
+  //     console.error('Error fetching quiz data');
+  //   }
+  // };
 
   const handleSplashClick = () => {
     setSplashScreen(false);
@@ -125,6 +125,21 @@ export default function App() {
           component={QuizOptions}
           options={{
             title: "Quiz Options",
+            headerStyle: {
+              backgroundColor: "#272724"
+            },
+            backgroundColor: "#272724",
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Quiz"
+          component={Quiz}
+          options={{
+            title: "Quiz",
             headerStyle: {
               backgroundColor: "#272724"
             },
