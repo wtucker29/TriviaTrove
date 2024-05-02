@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Animated } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import axios from 'axios';
+import he from 'he';
+import shuffle from 'lodash/shuffle';
 
 export default function QuizOptions({ handleQuizStart, navigation }) {
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
@@ -82,15 +84,29 @@ export default function QuizOptions({ handleQuizStart, navigation }) {
     try {
       const response = await axios.get(`https://opentdb.com/api.php?amount=${quizOptions.amount}&category=${quizOptions.category}&difficulty=${quizOptions.difficulty}&type=${quizOptions.type}`);
       setQuizData(response.data);
-      if (response.data) {
-        const data = response.data.results;
+      const decodedResponse = response.data.results.map((quiz) => {
+        quiz.question = he.decode(quiz.question);
+        quiz.correct_answer = he.decode(quiz.correct_answer);
+        quiz.incorrect_answers = quiz.incorrect_answers.map((answer) => he.decode(answer));
+        return quiz;
+      });
+      const shuffledQuestions = decodedResponse.map((question) => {
+        const shuffledOptions = shuffle([...question.incorrect_answers, question.correct_answer]);
+        return {
+          ...question,
+          shuffledOptions: shuffledOptions,
+        };
+      });
+
+      if (shuffledQuestions) {
+        const data = shuffledQuestions;
+        console.log('Quiz Data:', data);
         navigation.navigate('Quiz', { data });
         home();
       }
     } catch {
       console.error('Error fetching quiz data');
     }
-    // handleQuizStart(quizOptions);
 
     setQuizOptions({
       amount: 10,
