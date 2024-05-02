@@ -8,6 +8,7 @@ import Splash from './components/Splash';
 import QuizOptions from './components/QuizOptions';
 import Profile from './components/Profile';
 import Quiz from './components/Quiz';
+import Results from './components/Results';
 import axios from 'axios';
 
 const Stack = createStackNavigator();
@@ -139,6 +140,21 @@ export default function App() {
           component={Quiz}
           options={{
             title: "Quiz",
+            headerStyle: {
+              backgroundColor: "#272724"
+            },
+            backgroundColor: "#272724",
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Results"
+          component={Results}
+          options={{
+            title: "Results",
             headerStyle: {
               backgroundColor: "#272724"
             },
