@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
 
 export default function ProgressBar({ progress, data }) {
-  console.log('data in progress bar: ', data);
 
   const progressAnim = progress.interpolate({
     inputRange: [0, data],
