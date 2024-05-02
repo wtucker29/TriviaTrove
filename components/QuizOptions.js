@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Animat
 import DropDownPicker from 'react-native-dropdown-picker';
 import axios from 'axios';
 import he from 'he';
+import shuffle from 'lodash/shuffle';
 
 export default function QuizOptions({ handleQuizStart, navigation }) {
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
@@ -89,8 +90,17 @@ export default function QuizOptions({ handleQuizStart, navigation }) {
         quiz.incorrect_answers = quiz.incorrect_answers.map((answer) => he.decode(answer));
         return quiz;
       });
-      if (decodedResponse) {
-        const data = decodedResponse;
+      const shuffledQuestions = decodedResponse.map((question) => {
+        const shuffledOptions = shuffle([...question.incorrect_answers, question.correct_answer]);
+        return {
+          ...question,
+          shuffledOptions: shuffledOptions,
+        };
+      });
+
+      if (shuffledQuestions) {
+        const data = shuffledQuestions;
+        console.log('Quiz Data:', data);
         navigation.navigate('Quiz', { data });
         home();
       }
