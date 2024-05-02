@@ -109,7 +109,6 @@ export default function Quiz({ route, navigation }) {
 
   return (
     <ScrollView style={styles.scrollView}>
-      <Text>Hello World</Text>
       <View style={styles.container}>
         <View style={styles.subContainer}>
           <ProgressBar progress={progress} data={data.length} />
