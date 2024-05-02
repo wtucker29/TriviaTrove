@@ -1,7 +1,23 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native';
 
 export default function Results({ navigation, route }) {
   const { score, totalQuestions } = route.params;
+
+  const home = () => {
+    Animated.sequence([
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 100,
+        useNativeDriver: false,
+      }),
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 1900,
+        useNativeDriver: false,
+      }),
+    ]).start();
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.subContainer}>
@@ -10,14 +26,17 @@ export default function Results({ navigation, route }) {
           <Text style={styles.score}>{score}</Text>
           <Text style={styles.totalQuestions}>/{totalQuestions}</Text>
         </View>
-        {/** Add a button to navigate to the Home screen */}
+        {/** Add a button to navigate to the Profile screen */}
         <TouchableOpacity
-          title="Home"
-          onPress={() => navigation.navigate('Home')}
-          accessabilityLabel="Click to return to home page"
+          title="Profile"
+          onPress={() => {
+            navigation.navigate('Profile', { score, totalQuestions });
+            home();
+          }}
+          accessabilityLabel="Click to visit updated profile"
           style={styles.btn}
         >
-          <Text style={styles.btnText}>Home</Text>
+          <Text style={styles.btnText}>Profile</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -60,6 +79,7 @@ const styles = StyleSheet.create({
     position: "relative",
     borderRadius: 15,
     marginHorizontal: 20,
+    marginVertical: 20,
     alignItems: "center",
   },
   btnText: {
