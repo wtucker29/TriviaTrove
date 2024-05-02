@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text, Animated } from 'react-native';
 import { DataTable } from 'react-native-paper';
 import ProfileTable from './ProfileTable';
 
-export default function Profile({ navigation }) {
+export default function Profile({ navigation, route }) {
+  const [score, setScore] = useState(0);
+  const [questions, setQuestions] = useState(0);
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
+
+  // useEffect(() => {
+  //   if(route.params) {
+  //     const { score, totalQuestions } = route.params;
+  //     setScore(prevScore => prevScore + score);
+  //     setQuestions(prevQuestions => prevQuestions + totalQuestions);
+  //   }
+  // }, [route.params]);
 
   const home = () => {
     Animated.sequence([
@@ -24,15 +34,11 @@ export default function Profile({ navigation }) {
   return (
     <View style={styles.container} >
       <View style={styles.subContainer}>
-        <Text style={styles.text}>Overall Quiz Average:</Text>
-        <Text style={styles.text}>Total Score: 4</Text>
-        <Text style={styles.text}>Total Questions: 5</Text>
-        <Text style={styles.text}>Average Score: 75%</Text>
+        <Text style={styles.headingText}>Overall Quiz Average:</Text>
+        <Text style={styles.text}>Total Score: {score}</Text>
+        <Text style={styles.text}>Total Questions: {questions}</Text>
+        <Text style={styles.text}>Average Score: {((score / questions) * 100).toFixed(2)}%</Text>
       </View>
-      {/* <View style={styles.section}>
-        <Text style={styles.heading}>Quiz History:</Text>
-        <ProfileTable />
-      </View> */}
       <View style={styles.subContainer}>
         <TouchableOpacity
           title="Return to Home"
@@ -67,6 +73,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginVertical: 20,
     marginHorizontal: 20,
+  },
+  headingText: {
+    fontSize: 50,
+    fontWeight: "bold",
+    color: "#ffffff",
+    textAlign: "center",
   },
   text: {
     fontSize: 25,
