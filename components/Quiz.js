@@ -16,6 +16,21 @@ export default function Quiz({ route, navigation }) {
   const [correctOption, setCorrectOption] = useState(null);
   const [score, setScore] = useState(0);
 
+  const home = () => {
+    Animated.sequence([
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 100,
+        useNativeDriver: false,
+      }),
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 1900,
+        useNativeDriver: false,
+      }),
+    ]).start();
+  };
+
   const validateAnswer = (selectedOption, navigation) => {
     if (isOptionsDisabled === false) {
       let correct_option = data[currentQuestionIndex].correct_answer;
@@ -31,6 +46,7 @@ export default function Quiz({ route, navigation }) {
   const handleNextQuestion = (navigation) => {
     if (currentQuestionIndex == data.length - 1) {
       navigation.navigate('Results', {score: score, totalQuestions: data.length});
+      home();
     } else {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setCurrentOptionSelected(null);
@@ -40,7 +56,7 @@ export default function Quiz({ route, navigation }) {
     Animated.parallel([
       Animated.timing(progress, {
         toValue: currentQuestionIndex + 2,
-        duration: 2000,
+        duration: 500,
         useNativeDriver: false,
       }),
       Animated.sequence([
@@ -51,7 +67,7 @@ export default function Quiz({ route, navigation }) {
         }),
         Animated.timing(fadeAnim, {
           toValue: 1,
-          duration: 1900,
+          duration: 800,
           useNativeDriver: false,
         }),
       ]),
@@ -125,7 +141,7 @@ export default function Quiz({ route, navigation }) {
           style={[
             { ...styles.btnNext },
             {
-              backgroundColor: !currentOptionSelected ? '#6c757d' : '#007bff',
+              backgroundColor: !currentOptionSelected ? '#6c757d' : '#efd356',
             },
           ]}
           disabled={!currentOptionSelected}
