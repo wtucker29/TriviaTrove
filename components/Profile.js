@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text, Animated } from 'react-native';
-import { DataTable } from 'react-native-paper';
-import ProfileTable from './ProfileTable';
+import { useProfile } from './ProfileContext';
 
 export default function Profile({ navigation, route }) {
-  const [score, setScore] = useState(0);
-  const [questions, setQuestions] = useState(0);
+  const { score, questions } = useProfile();
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
 
   // useEffect(() => {

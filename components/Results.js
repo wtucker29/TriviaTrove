@@ -1,6 +1,9 @@
+import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native';
+import { useProfile } from './ProfileContext';
 
 export default function Results({ navigation, route }) {
+  const { updateProfileData } = useProfile();
   const { score, totalQuestions } = route.params;
 
   const home = () => {
@@ -18,6 +21,12 @@ export default function Results({ navigation, route }) {
     ]).start();
   };
 
+  const handleQuizCompletion =  () => {
+    updateProfileData(score, totalQuestions);
+    navigation.navigate('Profile');
+    home();
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.subContainer}>
@@ -29,10 +38,7 @@ export default function Results({ navigation, route }) {
         {/** Add a button to navigate to the Profile screen */}
         <TouchableOpacity
           title="Profile"
-          onPress={() => {
-            navigation.navigate('Profile', { score, totalQuestions });
-            home();
-          }}
+          onPress={handleQuizCompletion}
           accessabilityLabel="Click to visit updated profile"
           style={styles.btn}
         >
