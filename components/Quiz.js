@@ -112,10 +112,11 @@ export default function Quiz({ route, navigation }) {
       <Text>Hello World</Text>
       <View style={styles.container}>
         <View style={styles.subContainer}>
-          <ProgressBar progress={progress} />
+          <ProgressBar progress={progress} data={data.length} />
           <QuestionCount
             index={currentQuestionIndex}
             question={data[currentQuestionIndex]?.question}
+            data={data.length}
           />
         </View>
         {renderOptions(navigation)}

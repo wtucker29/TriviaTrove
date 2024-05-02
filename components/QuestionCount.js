@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-export default function QuestionCount({ index, question }) {
+export default function QuestionCount({ index, question, data }) {
+  const totalQuestions = data;
   return (
     <View style={{}}>
       <View
@@ -27,7 +28,7 @@ export default function QuestionCount({ index, question }) {
             opacity: 0.6,
           }}
         >
-          / 10
+          / {totalQuestions}
         </Text>
       </View>
 
