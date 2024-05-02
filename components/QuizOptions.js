@@ -100,7 +100,6 @@ export default function QuizOptions({ handleQuizStart, navigation }) {
 
       if (shuffledQuestions) {
         const data = shuffledQuestions;
-        console.log('Quiz Data:', data);
         navigation.navigate('Quiz', { data });
         home();
       }
