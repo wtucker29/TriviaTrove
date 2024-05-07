@@ -24,7 +24,7 @@ export default function Results({ navigation, route }) {
 
   const handleQuizCompletion =  () => {
     // updateProfileData(score, totalQuestions);
-    navigation.navigate('Profile');
+    navigation.navigate('Profile', { score, totalQuestions });
     home();
   };
 
