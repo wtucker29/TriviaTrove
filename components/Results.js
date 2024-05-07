@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native';
 import { useProfile } from './ProfileContext';
 
 export default function Results({ navigation, route }) {
-  const { updateProfileData } = useProfile();
+  // const { updateProfileData } = useProfile();
   const { score, totalQuestions } = route.params;
+  const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
 
   const home = () => {
     Animated.sequence([
@@ -22,7 +23,7 @@ export default function Results({ navigation, route }) {
   };
 
   const handleQuizCompletion =  () => {
-    updateProfileData(score, totalQuestions);
+    // updateProfileData(score, totalQuestions);
     navigation.navigate('Profile');
     home();
   };
