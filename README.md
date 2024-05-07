@@ -23,23 +23,23 @@
 
 <div align="center">
   <h3>Splash Page</h3>
-  <img src="./public/assets/Splashpage.png" alt="TriviaTrove Splashpage" width="600px" />
+  <img src="./assets/Splashpage.png" alt="TriviaTrove Splashpage" width="600px" />
 <br />
     <h3>Home Page</h3>
-  <img src="./public/assets/Homepage.png" alt="Homepage" width="600px" />
+  <img src="./assets/Homepage.png" alt="Homepage" width="600px" />
 <br />
     <h3>Trivia Selection</h3>
-  <img src="./public/assets/Options.png" alt="Trivia Selection" width="600px" />
+  <img src="./assets/Options.png" alt="Trivia Selection" width="600px" />
 <br />
     <h3>Questions Display</h3>
-  <img src="./public/assets/Question.png" alt="Question Display" width="600px" />
-  <img src="./public/assets/AnsweredQuestion.png" alt="Answered Question" width="600px" />
+  <img src="./assets/Question.png" alt="Question Display" width="600px" />
+  <img src="./assets/AnsweredQuestion.png" alt="Answered Question" width="600px" />
 <br />
     <h3>Results Page</h3>
-  <img src="./public/assets/Results.png" alt="Results Page" width="600px" />
+  <img src="./assets/Results.png" alt="Results Page" width="600px" />
 <br />
     <h3>Profile Page</h3>
-  <img src="./public/assets/ProfilePage.png" alt="Profile Page" width="600px" />
+  <img src="./assets/ProfilePage.png" alt="Profile Page" width="600px" />
 </div>
 
 <br />
