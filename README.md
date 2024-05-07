@@ -29,7 +29,7 @@
   <img src="./public/assets/Homepage.png" alt="Homepage" width="600px" />
 <br />
     <h3>Trivia Selection</h3>
-  <img src="./public/assets/Question.png" alt="Trivia Selection" width="600px" />
+  <img src="./public/assets/Options.png" alt="Trivia Selection" width="600px" />
 <br />
     <h3>Questions Display</h3>
   <img src="./public/assets/Question.png" alt="Question Display" width="600px" />
