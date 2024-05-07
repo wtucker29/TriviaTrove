@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text, Animated } from 'react-native';
-import { useProfile } from './ProfileContext';
 
 export default function Profile({ navigation, route }) {
-  const { score, questions } = useProfile();
+  const [score, setScore] = useState(0);
+  const [questions, setQuestions] = useState(0);
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
 
-  // useEffect(() => {
-  //   if(route.params) {
-  //     const { score, totalQuestions } = route.params;
-  //     setScore(prevScore => prevScore + score);
-  //     setQuestions(prevQuestions => prevQuestions + totalQuestions);
-  //   }
-  // }, [route.params]);
+  useEffect(() => {
+    if(route.params) {
+      const { score, totalQuestions } = route.params;
+      setScore(prevScore => prevScore + score);
+      setQuestions(prevQuestions => prevQuestions + totalQuestions);
+    }
+  }, [route.params]);
 
   const home = () => {
     Animated.sequence([
