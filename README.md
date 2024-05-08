@@ -23,23 +23,23 @@
 
 <div align="center">
   <h3>Splash Page</h3>
-  <img src="./assets/Splashpage.png" alt="TriviaTrove Splashpage" width="600px" />
+  <img src="./assets/Splashpage.png" alt="TriviaTrove Splashpage" width="300px" height="600"/>
 <br />
     <h3>Home Page</h3>
-  <img src="./assets/Homepage.png" alt="Homepage" width="600px" />
+  <img src="./assets/Homepage.png" alt="Homepage" width="300px" height="600" />
 <br />
-    <h3>Trivia Selection</h3>
-  <img src="./assets/Options.png" alt="Trivia Selection" width="600px" />
+    <h3>Question Count, Topic, Difficulty, and Question Type Selection</h3>
+  <img src="./assets/Options.png" alt="Trivia Selection" width="300px" height="600" />
 <br />
     <h3>Questions Display</h3>
-  <img src="./assets/Question.png" alt="Question Display" width="600px" />
-  <img src="./assets/AnsweredQuestion.png" alt="Answered Question" width="600px" />
+  <img src="./assets/Question.png" alt="Question Display" width="300px" height="600" />
+  <img src="./assets/AnsweredQuestion.png" alt="Answered Question" width="300px" height="600" />
 <br />
     <h3>Results Page</h3>
-  <img src="./assets/Results.png" alt="Results Page" width="600px" />
+  <img src="./assets/Results.png" alt="Results Page" width="300px" height="600" />
 <br />
     <h3>Profile Page</h3>
-  <img src="./assets/ProfilePage.png" alt="Profile Page" width="600px" />
+  <img src="./assets/ProfilePage.png" alt="Profile Page" width="300px" height="600" />
 </div>
 
 <br />
@@ -48,9 +48,12 @@
 TriviaTrove is a mobile version of my desktop QuizWhiz application. The idea of TriviaTrove is to have a way to practice for your local trivia night, or to just have fun and learn new things!
 </p>
 <ul>
-<li><b>The Product Detail Page</b>: A central hub that ensures a seamless decision-making process for the user, featuring a dynamic image gallery, detailed product information, a style selector, and an option to add products to the shopping cart</li>
-<li><b>Related Items and User Outfit</b>: Enhancing further product discovery, this module presents users with two curated sets of products: one showcasing items similar to the currently viewed product, and another allowing users to create and manage a list of favorites for easy comparison and revisit</li>
-<li><b>The Ratings and Reviews Module</b>: This module empowers users to browse through existing reviews and submit their own, providing valuable insights and feedback on products</li>
+<li><b>The Splash Page</b>: This is the welcome page to the application.</li>
+<li><b>The Home Page</b>: The Home Page gives users the option to go to the quiz selection page, or the profile page to look at their statistics.</li>
+<li><b>Question Count, Topic, Difficulty, and Question Type Selection</b>: This screen allows the user to select the question count, topic, difficulty, and question type for their trivia. If a topic, difficulty, or question type is not selected, the API will randomize the response back to the user.</li>
+<li><b>Questions Display</b>: The main screen when answering trivia questions has a bar above the question, indicating the user's current progress through the selected quiz. The possible answers are displayed in blue, and change to green or red on user selection, indicating a correct or incorrect answer.</li>
+<li><b>Results Page</b>: This page displays the user's score, before directing them to the Profile page to see their overall average.</li>
+<li><b>Profile Page</b>: This page displays the user's overall quiz average, along with the number of correct answers and total questions.</li>
 </ul>
 
 ### Built With
@@ -61,7 +64,7 @@ TriviaTrove is a mobile version of my desktop QuizWhiz application. The idea of 
 
 ## Getting Started
 <p>
-    Instructions to setup Project Atelier on your local machine below.
+    Instructions to setup TriviaTrove on your local machine below.
 </p>
 
 ### Prerequisites 
@@ -84,33 +87,26 @@ git clone https://github.com/wtucker29/TriviaTrove
 ```sh
 npm install 
 ```
-3. Enter your Github token in `.env` file
-```sh
- GITHUB_TOKEN = (your Github token)
+3. Run in your dev environment: 
 ```
-4. Open two separate terminal tabs and run in your dev environment: 
-```
-npm run server-dev
+npm run start
 ``` 
-```
-npm run client-dev
-```
+4. Scan the QR code to open TriviaTrove in the ExpoGo application, or use the other options provided by Expo
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap 
 
-- [x] Develop an e-commerce website containing a product overview, related items, and ratings and reviews section
-- [x] Implement a photo gallery, product information section, style selector section, and add to cart functionality
-- [x] Implement 
-- [x] Implement a review section with filterable reviews, the ability to add photos, and the ability to add reviews with unique characteristics per item.
-- [ ] Leverage Redux as a state management system
+- [x] Develop a mobile trivia application
+- [x] Implement a quiz page with a progress bar, and animations
+- [x] Implement a Profile page that displays the quiz average based on the user's result.
+- [ ] Utilize local storage to store user results in the Profile page.
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
 ## Usage
 
-Project Atelier is run using Expo. Scan the QR code when running the npm start script.
+TriviaTrove is run using Expo. Scan the QR code when running the npm start script.
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
