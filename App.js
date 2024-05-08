@@ -9,6 +9,7 @@ import QuizOptions from './components/QuizOptions';
 import Profile from './components/Profile';
 import Quiz from './components/Quiz';
 import Results from './components/Results';
+import { ProfileProvider } from './components/ProfileContext';
 import axios from 'axios';
 
 const Stack = createStackNavigator();
@@ -20,15 +21,6 @@ export default function App() {
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [userResults, setUserResults] = useState([]);
   const [profile, setProfile] = useState(false);
-
-  // const handleQuizStart = async (quizOptions) => {
-  //   try {
-  //     const response = await axios.get(`https://opentdb.com/api.php?amount=${quizOptions.amount}&category=${quizOptions.category}&difficulty=${quizOptions.difficulty}&type=${quizOptions.type}`);
-  //     setQuizData(response.data);
-  //   } catch {
-  //     console.error('Error fetching quiz data');
-  //   }
-  // };
 
   const handleSplashClick = () => {
     setSplashScreen(false);
@@ -72,125 +64,96 @@ export default function App() {
       };
 
       console.log('PostData:', postData);
-
-      // try {
-      //   const response = axios.post('http://localhost:3000/quiz/results', postData);
-      //   console.log('Score submitted successfully', response.data);
-      // } catch (err) {
-      //   console.error('Error submitting score: ', err);
-      // }
     }
   };
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen
-          name="Welcome"
-          component={Splash}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            title: "Home",
-            headerStyle: {
-              backgroundColor: "#272724"
-            },
-            backgroundColor: "#272724",
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            title: "Profile",
-            headerStyle: {
-              backgroundColor: "#272724"
-            },
-            backgroundColor: "#272724",
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="QuizOptions"
-          component={QuizOptions}
-          options={{
-            title: "Quiz Options",
-            headerStyle: {
-              backgroundColor: "#272724"
-            },
-            backgroundColor: "#272724",
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="Quiz"
-          component={Quiz}
-          options={{
-            title: "Quiz",
-            headerStyle: {
-              backgroundColor: "#272724"
-            },
-            backgroundColor: "#272724",
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="Results"
-          component={Results}
-          options={{
-            title: "Results",
-            headerStyle: {
-              backgroundColor: "#272724"
-            },
-            backgroundColor: "#272724",
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-    // <ScrollView contentContainerStyle={styles.container} nestedScrollEnabled={true} bounces={false}>
-    //   <Header />
-    //   {splashScreen && (
-    //     <Splash visible={splashScreen} onSplashClick={handleSplashClick}/>
-    //   )}
-    //   {!splashScreen && !quizData && profile === false && (
-    //     <TouchableOpacity title="Profile" onPress={onProfileClick} accessabilityLabel="Click to view user profile" style={styles.button}>
-    //       <Text style={styles.buttonText}>Profile</Text>
-    //     </TouchableOpacity>
-    //     )}
-    //   {!splashScreen && profile === true && (
-    //     <Profile onProfileClose={handleProfileClose}/>
-    //   )}
-    //   {splashScreen && !quizData && profile === false && (
-    //     <Text style={styles.welcome}>Welcome to QuizWhiz! Please choose a category, difficulty, and quiz type to start. Start your journey to Trivia Night mastery today!</Text>
-    //   )}
-    //   {!splashScreen && !quizData && profile === false && (
-    //     <QuizOptions handleQuizStart={handleQuizStart}/>
-    //   )}
-    //   {!splashScreen && quizData && userScore === null && (
-    //     <Quiz quizData={quizData} onAnswerSubmit={handleAnswerSubmit} />
-    //   )}
-    //   <StatusBar style="auto" />
-    // </ScrollView>
+    <ProfileProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Welcome">
+          <Stack.Screen
+            name="Welcome"
+            component={Splash}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: "Home",
+              headerStyle: {
+                backgroundColor: "#272724"
+              },
+              backgroundColor: "#272724",
+              headerTintColor: "#fff",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={{
+              title: "Profile",
+              headerStyle: {
+                backgroundColor: "#272724"
+              },
+              backgroundColor: "#272724",
+              headerTintColor: "#fff",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="QuizOptions"
+            component={QuizOptions}
+            options={{
+              title: "Quiz Options",
+              headerStyle: {
+                backgroundColor: "#272724"
+              },
+              backgroundColor: "#272724",
+              headerTintColor: "#fff",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="Quiz"
+            component={Quiz}
+            options={{
+              title: "Quiz",
+              headerStyle: {
+                backgroundColor: "#272724"
+              },
+              backgroundColor: "#272724",
+              headerTintColor: "#fff",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="Results"
+            component={Results}
+            options={{
+              title: "Results",
+              headerStyle: {
+                backgroundColor: "#272724"
+              },
+              backgroundColor: "#272724",
+              headerTintColor: "#fff",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ProfileProvider>
   );
 }
 
