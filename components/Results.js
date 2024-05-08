@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native
 import { useProfile } from './ProfileContext';
 
 export default function Results({ navigation, route }) {
-  // const { updateProfileData } = useProfile();
+  const { updateProfileData } = useProfile();
   const { score, totalQuestions } = route.params;
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
 
@@ -23,8 +23,8 @@ export default function Results({ navigation, route }) {
   };
 
   const handleQuizCompletion =  () => {
-    // updateProfileData(score, totalQuestions);
-    navigation.navigate('Profile', { score, totalQuestions });
+    updateProfileData(score, totalQuestions);
+    navigation.navigate('Profile');
     home();
   };
 
